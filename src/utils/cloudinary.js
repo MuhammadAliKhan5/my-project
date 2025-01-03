@@ -25,7 +25,6 @@ const uploadOnCloudinary = async (localFilePath) => {
     }
 }
 
-
 export { uploadOnCloudinary }
 
 
@@ -34,7 +33,7 @@ export { uploadOnCloudinary }
 
 
 cloudinary.v2.uploader.upload('https://res.cloudinary.com/demo/image/upload/getting-started/shoes.jpg',
-    { public_id: "olympic_flag" },
+    { public_id: "shoes" },
 
     function (error, result) { console.log(result); });
 
