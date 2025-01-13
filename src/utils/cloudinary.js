@@ -16,12 +16,14 @@ const uploadOnCloudinary = async (localFilePath) => {
             resource_type: "auto"
         })
         // file has been uploaded successfully
-        console.log("file is uploaded on cloudinary", response.url);
+        // console.log("file is uploaded on cloudinary", response.url);
+        fs.unlinkSync(localFilePath)
         return response;
 
     } catch (error) {
+        console.log("Error: ", error)
         fs.unlinkSync(localFilePath)  // remove the locally saved temporary files.
-        return null;
+        return null; 
     }
 }
 
@@ -31,9 +33,9 @@ export { uploadOnCloudinary }
 
 
 
+// export const deleteFromCloudinary = (cloudinaryURL) =>{
+    
+    
 
-cloudinary.v2.uploader.upload('https://res.cloudinary.com/demo/image/upload/getting-started/shoes.jpg',
-    { public_id: "shoes" },
-
-    function (error, result) { console.log(result); });
-
+//     function (error, result) { console.log(result); });
+// }
